@@ -10,12 +10,14 @@ fi
 
 # Add lines to ~/.bashrc to source our profile files
 if [ ! "$(grep BASHRCD ~/.bashrc)" ] ; then
-	echo >> ~/.bashrc <<-EOL
+	cat <<-EOF >> ~/.bashrc
+
 		#
 		# BASHRCD : https://github.com/leereyno/bashrc.d
 		#
 		for each in ~/bashrc.d/*.sh ; do
-			source $each
+		    source \$each
 		done
-	EOL
+
+	EOF
 fi	
