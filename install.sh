@@ -12,6 +12,7 @@ fi
 if [ $# -ge 1 ] ; then
 	/bin/cp -av ${1}/bashrc.d/* ~/bashrc.d/
 else
+	cd $(dirname $0) # go to the directory where install.sh lives
 	/bin/cp -av bashrc.d/* ~/bashrc.d/
 fi
 
