@@ -1,0 +1,30 @@
+# Enable tab completion
+source ~/resources_git/git-completion.bash
+
+# colors!
+red="\[\033[1;91m\]"
+green="\[\033[1;32m\]"
+blue="\[\033[1;34m\]"
+purple="\[\033[1;35m\]"
+reset="\[\033[0m\]"
+
+# Change command prompt
+source ~/resources_git/git-prompt.sh
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+# '\u' adds the name of the current user to the prompt
+# '\$(__git_ps1)' adds git-related stuff
+# '\W' adds the name of the current directory
+#export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
+
+if [ $UID = "0" ] ; then                                                        
+	# Prompt is red
+	export PS1="\n$red[\u@\h:\w]$blue\$(__git_ps1)$red \\$ $reset"
+else
+	# Prompt is green
+	export PS1="\n$green[\u@\h:\w]$blue\$(__git_ps1)$green \\$ $reset"
+fi
+
+# Fix history so it doesn't expire
+export HISTFILESIZE=                                                            
+export HISTSIZE=

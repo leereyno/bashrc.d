@@ -11,9 +11,11 @@ fi
 # directory for files
 if [ $# -ge 1 ] ; then
 	/bin/cp -av ${1}/bashrc.d/* ~/bashrc.d/
+	/bin/cp -av ${1}/resources_git ~/
 else
 	cd $(dirname $0) # go to the directory where install.sh lives
 	/bin/cp -av bashrc.d/* ~/bashrc.d/
+	/bin/cp -av resources_git ~/
 fi
 
 # Add lines to ~/.bashrc to source our profile files
